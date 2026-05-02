@@ -77,3 +77,27 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', theme);
         });
     }
+
+     // =============================
+    //       DASHBOARD LOGIC
+    // =============================
+    if (page === 'index' || page === '') {
+        const calculateTotals = () => {
+            const totalAnimals = livestock.reduce((sum, animal) => sum + parseInt(animal.quantity, 10), 0);
+            const healthyAnimals = livestock.filter(a => a.healthStatus === 'Healthy').reduce((sum, animal) => sum + parseInt(animal.quantity, 10), 0);
+            const sickAnimals = totalAnimals - healthyAnimals;
+            const totalIncome = income.reduce((sum, item) => sum + item.amount, 0);
+            const totalExpenses = expenses.reduce((sum, item) => sum + item.amount, 0);
+            const netProfit = totalIncome - totalExpenses;
+
+            get('total-animals').textContent = totalAnimals;
+            get('healthy-animals').textContent = healthyAnimals;
+            get('sick-animals').textContent = sickAnimals;
+            get('total-income').textContent = `$${totalIncome.toLocaleString()}`;
+            get('total-expenses').textContent = `$${totalExpenses.toLocaleString()}`;
+            get('net-profit').textContent = `$${netProfit.toLocaleString()}`;
+        };
+        calculateTotals();
+    }
+     
+    
