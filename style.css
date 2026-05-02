@@ -129,3 +129,37 @@ i { margin-right: 10px; }
     background-color: var(--expenses-color);
     color: white;
 }
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+.main-content header { margin-bottom: 30px; }
+
+/* Dashboard & Cards */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+.card h4 {
+    font-weight: 500;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+.card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.card.card-healthy p { color: #4CAF50; }
+.card.card-sick p { color: #F44336; }
+.card.card-income p, .card-profit.positive p { color: var(--income-color); }
+.card.card-expenses p, .card-profit.negative p { color: var(--expenses-color); }
