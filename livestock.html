@@ -46,3 +46,40 @@
                     </div>
                 </form>
             </section>
+             <!-- Livestock List -->
+            <section id="livestock-list-section">
+                <h3>Current Livestock</h3>
+                <div class="filter-controls">
+                    <input type="text" id="search-livestock" placeholder="Search by type or breed...">
+                    <select id="filter-health">
+                        <option value="all">All Statuses</option>
+                        <option value="Healthy">Healthy</option>
+                        <option value="Sick">Sick</option>
+                        <option value="Under Treatment">Under Treatment</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table id="livestock-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Type</th>
+                                <th>Breed</th>
+                                <th>Quantity</th>
+                                <th>Date Added</th>
+                                <th>Health</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="livestock-table-body">
+                            <!-- Data will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+it 
