@@ -100,4 +100,43 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateTotals();
     }
      
-    
+    // =============================
+    //       LIVESTOCK LOGIC
+    // =============================
+    if (page === 'livestock') {
+        const form = get('livestock-form');
+        const tableBody = get('livestock-table-body');
+        const animalIdInput = get('animal-id');
+        const submitBtn = get('submit-livestock-btn');
+        const cancelBtn = get('cancel-edit-btn');
+        const searchInput = get('search-livestock');
+        const filterHealth = get('filter-health');
+        
+        const renderTable = () => {
+            tableBody.innerHTML = '';
+            const searchTerm = searchInput.value.toLowerCase();
+            const healthFilter = filterHealth.value;
+            const filteredLivestock = livestock.filter(animal => {
+                const matchesSearch = animal.type.toLowerCase().includes(searchTerm) || animal.breed.toLowerCase().includes(searchTerm);
+                const matchesHealth = healthFilter === 'all' || animal.healthStatus === healthFilter;
+                return matchesSearch && matchesHealth;
+            });
+            
+            if (filteredLivestock.length === 0) {
+                 tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center;">No livestock found.</td></tr>`;
+                 return;
+            }
+            filteredLivestock.forEach(animal => {
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>${animal.id}</td><td>${animal.type}</td><td>${animal.breed}</td><td>${animal.quantity}</td>
+                        <td>${new Date(animal.dateAdded).toLocaleDateString()}</td>
+                        <td><span class="status-${animal.healthStatus.toLowerCase().replace(/ /g, '-')}">${animal.healthStatus}</span></td>
+                        <td>
+                            <button class="action-btn edit-btn" data-id="${animal.id}"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn" data-id="${animal.id}"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>`;
+            });
+        };
+
