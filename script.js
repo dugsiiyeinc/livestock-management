@@ -140,3 +140,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+         form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = animalIdInput.value;
+            const newAnimal = {
+                id: id ? id : 'A' + Date.now(),
+                type: get('animal-type').value, breed: get('animal-breed').value, quantity: get('animal-quantity').value,
+                healthStatus: get('health-status').value, dateAdded: id ? livestock.find(a => a.id === id).dateAdded : new Date().toISOString()
+            };
+            if (id) livestock = livestock.map(animal => animal.id === id ? newAnimal : animal);
+            else livestock.push(newAnimal);
+            setData('livestock', livestock);
+            form.reset(); animalIdInput.value = ''; submitBtn.textContent = 'Add Animal'; cancelBtn.classList.add('hidden');
+            renderTable();
+        });
+
+        tableBody.addEventListener('click', (e) => {
+            const editBtn = e.target.closest('.edit-btn');
+            if (editBtn) {
+                const animal = livestock.find(a => a.id === editBtn.dataset.id);
+                animalIdInput.value = animal.id; get('animal-type').value = animal.type; get('animal-breed').value = animal.breed;
+                get('animal-quantity').value = animal.quantity; get('health-status').value = animal.healthStatus;
+                submitBtn.textContent = 'Update Animal'; cancelBtn.classList.remove('hidden'); window.scrollTo(0, 0);
+            }
+            const deleteBtn = e.target.closest('.delete-btn');
+            if (deleteBtn) {
+                if (confirm('Are you sure you want to delete this animal record?')) {
+                    livestock = livestock.filter(animal => animal.id !== deleteBtn.dataset.id);
+                    setData('livestock', livestock); renderTable();
+                }
+            }
+        });
+        
+        cancelBtn.addEventListener('click', () => {
+            form.reset(); animalIdInput.value = ''; submitBtn.textContent = 'Add Animal'; cancelBtn.classList.add('hidden');
+        });
+        searchInput.addEventListener('input', renderTable);
+        filterHealth.addEventListener('change', renderTable);
+        renderTable();
+    } 
