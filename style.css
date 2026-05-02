@@ -163,3 +163,66 @@ i { margin-right: 10px; }
 .card.card-sick p { color: #F44336; }
 .card.card-income p, .card-profit.positive p { color: var(--income-color); }
 .card.card-expenses p, .card-profit.negative p { color: var(--expenses-color); }
+
+/* Forms & Tables */
+.form-container, #livestock-list-section {
+    background: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+.form-actions { margin-top: 20px; }
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+button:hover { background-color: #388E3C; }
+button.hidden { display: none; }
+#cancel-edit-btn { background-color: var(--secondary-color); }
+.table-container { overflow-x: auto; margin-top: 20px;}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+th, td { padding: 12px; border-bottom: 1px solid var(--border-color); }
+thead { background: var(--background-color); }
+.status-healthy { color: #4CAF50; font-weight: bold; }
+.status-sick { color: #F44336; font-weight: bold; }
+.status-under-treatment { color: #FF9800; font-weight: bold; }
+.action-btn { background: none; border: none; cursor: pointer; color: var(--secondary-color); font-size: 1rem; }
+.filter-controls { display: flex; gap: 15px; margin-bottom: 20px; }
+.filter-controls input, .filter-controls select { padding: 10px; border-radius: 4px; border: 1px solid var(--border-color); }
+
+/* Finance Page */
+.finance-summary { margin-bottom: 30px; }
+.finance-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
