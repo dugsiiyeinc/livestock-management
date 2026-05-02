@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestock - Livestock Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body id="livestock">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-cow"></i> FarmFlow</h3>
+                <div class="theme-toggler">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="livestock.html" class="nav-link active"><i class="fa-solid fa-hippo"></i> Livestock</a>
+                <a href="finance.html" class="nav-link"><i class="fas fa-dollar-sign"></i> Finance</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
 
         <!-- Main Content -->
         <main class="main-content">
@@ -46,7 +75,8 @@
                     </div>
                 </form>
             </section>
-             <!-- Livestock List -->
+            
+            <!-- Livestock List -->
             <section id="livestock-list-section">
                 <h3>Current Livestock</h3>
                 <div class="filter-controls">
@@ -82,4 +112,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-it 

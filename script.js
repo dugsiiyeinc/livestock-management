@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- AUTHENTICATION ---
     const CORRECT_USERNAME = 'admin';
-    const CORRECT_PASSWORD = 'farm123';
+    const CORRECT_PASSWORD = '12345678';
     const page = document.body.id || window.location.pathname.split('/').pop().split('.')[0];
     const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
