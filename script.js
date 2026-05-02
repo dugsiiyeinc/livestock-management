@@ -179,3 +179,44 @@ document.addEventListener('DOMContentLoaded', () => {
         filterHealth.addEventListener('change', renderTable);
         renderTable();
     } 
+    // =============================
+    //       FINANCE LOGIC
+    // =============================
+    if (page === 'finance') {
+        const renderFinance = () => {
+            // Render tables
+            get('income-table-body').innerHTML = income.map(item => `<tr><td>${item.source}</td><td>$${item.amount.toLocaleString()}</td><td>${new Date(item.date).toLocaleDateString()}</td><td><button class="action-btn delete-btn" data-id="${item.id}" data-type="income"><i class="fas fa-trash"></i></button></td></tr>`).join('');
+            get('expenses-table-body').innerHTML = expenses.map(item => `<tr><td>${item.name}</td><td>$${item.amount.toLocaleString()}</td><td>${new Date(item.date).toLocaleDateString()}</td><td><button class="action-btn delete-btn" data-id="${item.id}" data-type="expenses"><i class="fas fa-trash"></i></button></td></tr>`).join('');
+            // Update summary
+            const totalIncome = income.reduce((s, i) => s + i.amount, 0);
+            const totalExpenses = expenses.reduce((s, i) => s + i.amount, 0);
+            get('finance-total-income').textContent = `$${totalIncome.toLocaleString()}`;
+            get('finance-total-expenses').textContent = `$${totalExpenses.toLocaleString()}`;
+            get('finance-net-profit').textContent = `$${(totalIncome - totalExpenses).toLocaleString()}`;
+        };
+
+        get('income-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            income.push({id: 'I' + Date.now(), source: get('income-source').value, amount: parseFloat(get('income-amount').value), date: new Date().toISOString()});
+            setData('income', income); renderFinance(); e.target.reset();
+        });
+
+        get('expenses-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            expenses.push({id: 'E' + Date.now(), name: get('expense-name').value, amount: parseFloat(get('expense-amount').value), date: new Date().toISOString()});
+            setData('expenses', expenses); renderFinance(); e.target.reset();
+        });
+        
+        document.body.addEventListener('click', (e) => {
+             const deleteBtn = e.target.closest('.delete-btn[data-type]');
+             if (deleteBtn && confirm('Are you sure you want to delete this financial record?')) {
+                 if (deleteBtn.dataset.type === 'income') income = income.filter(i => i.id !== deleteBtn.dataset.id);
+                 else expenses = expenses.filter(i => i.id !== deleteBtn.dataset.id);
+                 setData(deleteBtn.dataset.type, deleteBtn.dataset.type === 'income' ? income : expenses);
+                 renderFinance();
+             }
+        });
+        renderFinance();
+    }
+});
+
