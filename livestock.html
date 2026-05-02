@@ -1,0 +1,48 @@
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Livestock Management</h1>
+                <p>Add, edit, and track your farm animals.</p>
+            </header>
+
+            <!-- Add/Edit Animal Form -->
+            <section class="form-container">
+                <form id="livestock-form">
+                    <input type="hidden" id="animal-id">
+                    <h3>Add or Edit Animal</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="animal-type">Animal Type</label>
+                            <select id="animal-type" required>
+                                <option value="">Select Type</option>
+                                <option value="Cow">Cow</option>
+                                <option value="Goat">Goat</option>
+                                <option value="Sheep">Sheep</option>
+                                <option value="Chicken">Chicken</option>
+                                <option value="Pig">Pig</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="animal-breed">Breed</label>
+                            <input type="text" id="animal-breed" placeholder="e.g., Sahiwal" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="animal-quantity">Quantity</label>
+                            <input type="number" id="animal-quantity" min="1" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="health-status">Health Status</label>
+                            <select id="health-status" required>
+                                <option value="Healthy">Healthy</option>
+                                <option value="Sick">Sick</option>
+                                <option value="Under Treatment">Under Treatment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="submit-livestock-btn">Add Animal</button>
+                        <button type="button" id="cancel-edit-btn" class="hidden">Cancel Edit</button>
+                    </div>
+                </form>
+            </section>
