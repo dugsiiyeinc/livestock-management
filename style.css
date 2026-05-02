@@ -226,3 +226,15 @@ thead { background: var(--background-color); }
     grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
+/* Responsive */
+@media (max-width: 1200px) {
+    .finance-columns { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .app-container { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; flex-direction: row; justify-content: space-between; align-items: center; }
+    .sidebar-nav { display: none; }
+    .main-content { padding: 15px; }
+    .dashboard-cards, .form-grid, .filter-controls { grid-template-columns: 1fr; }
+    .filter-controls { flex-direction: column; }
+}
