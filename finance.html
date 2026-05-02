@@ -49,3 +49,27 @@
                     <p id="finance-net-profit">$0</p>
                 </div>
             </div>
+              <div class="finance-columns">
+                <!-- Income Section -->
+                <section class="form-container">
+                    <form id="income-form">
+                        <h3><i class="fas fa-plus-circle"></i> Add Income Record</h3>
+                        <div class="form-group">
+                            <label for="income-source">Source of Income</label>
+                            <input type="text" id="income-source" placeholder="e.g., Milk Sale" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="income-amount">Amount</label>
+                            <input type="number" id="income-amount" placeholder="100" min="0" required>
+                        </div>
+                        <button type="submit">Add Income</button>
+                    </form>
+                    <div class="table-container">
+                        <h4>Income History</h4>
+                        <table id="income-table">
+                            <thead><tr><th>Source</th><th>Amount</th><th>Date</th><th>Action</th></tr></thead>
+                            <tbody id="income-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
