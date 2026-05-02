@@ -54,3 +54,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Stop executing app-specific code if not logged in
     if (!isLoggedIn) return;
+
+     // --- APP LOGIC (only runs if logged in) ---
+
+    // --- UTILITY FUNCTIONS ---
+    const get = (id) => document.getElementById(id);
+    const getData = (key) => JSON.parse(localStorage.getItem(key)) || [];
+    const setData = (key, data) => localStorage.setItem(key, JSON.stringify(data));
+
+    let livestock = getData('livestock');
+    let income = getData('income');
+    let expenses = getData('expenses');
+
+    // --- THEME MANAGEMENT ---
+    const themeToggler = document.querySelector('.theme-toggler');
+    if (themeToggler) {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') document.body.classList.add('dark-mode');
+        themeToggler.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            let theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+    }
