@@ -30,3 +30,45 @@ body {
 }
 .app-container { display: flex; min-height: 100vh; }
 i { margin-right: 10px; }
+
+/* --- Login Screen --- */
+#login-container {
+    display: none; /* Hidden initially, shown by JS */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+.login-box {
+    background: var(--card-bg-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+.login-box h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.login-box p {
+    margin-bottom: 25px;
+    opacity: 0.7;
+}
+#login-form .form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+#login-form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 1rem;
+}
+#login-error {
+    color: var(--expenses-color);
+    margin-top: 15px;
+    font-weight: bold;
+    height: 20px;
+}
