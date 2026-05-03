@@ -78,9 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-     // =============================
-    //       DASHBOARD LOGIC
-    // =============================
+    //       DASHBOARD LOGIC //
+    
     if (page === 'index' || page === '') {
         const calculateTotals = () => {
             const totalAnimals = livestock.reduce((sum, animal) => sum + parseInt(animal.quantity, 10), 0);
