@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateTotals();
     }
      
-    // =============================
+
     //       LIVESTOCK LOGIC
-    // =============================
+
     if (page === 'livestock') {
         const form = get('livestock-form');
         const tableBody = get('livestock-table-body');
@@ -129,7 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
             filteredLivestock.forEach(animal => {
                 tableBody.innerHTML += `
                     <tr>
-                        <td>${animal.id}</td><td>${animal.type}</td><td>${animal.breed}</td><td>${animal.quantity}</td>
+                        <td>${animal.id}</td>
+                        <td>${animal.type}</td>
+                        <td>${animal.breed}</td>
+                        <td>${animal.quantity}</td>
                         <td>${new Date(animal.dateAdded).toLocaleDateString()}</td>
                         <td><span class="status-${animal.healthStatus.toLowerCase().replace(/ /g, '-')}">${animal.healthStatus}</span></td>
                         <td>
