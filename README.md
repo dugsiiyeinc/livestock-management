@@ -1,10 +1,8 @@
-# livestock-management
-xoolo care Livestock  waa nidaam lagu diiwaangeliyo laguna maareeyo xoolaha, iyadoo lagu kala saarayo kuwa caafimaad qaba, kuwa xanuunsan, iyo kuwa iibka diyaar u ah, lana kaydinayo xogtooda iyo qiimahooda si maamulka iyo ganacsigu u noqdaan kuwo fudud oo hufan.
- # FarmFlow: Livestock Management System
+ # xoolo care: Livestock Management System
 
 ## Description
 
-xoolo care is a modern, professional, and secure Livestock Management System built entirely with **HTML, CSS, and Vanilla JavaScript**. It solves a real-world problem by helping farmers efficiently manage their livestock, track animal health, and monitor all financial activities. The system is a client-side application that features a secure login and uses **LocalStorage** to persist all farm data directly in the user's browser.
+xoolo care is a modern, professional, and secure Livestock Management System built entirely with **HTML, CSS, and Vanilla JavaScript**. It solves a real-world problem by helping farmers efficiently manage their livestock, track animal health, and monitor all financial activities. The system is a client-side application that features a secure login and uses **LocalStorage** to persist all farm data directly in the user's browser. Designed and developed by Eng. Mohamed Muumin as part of coursework at Dugsiiye.
 
 ## ✨ Key Features
 
